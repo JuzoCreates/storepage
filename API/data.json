@@ -1,0 +1,152 @@
+{
+    "electronics": {
+        "subcategories": ["Smartphones", "Laptops", "Headphones", "Smartwatches", "Cameras", "Gaming"],
+        "items": [
+            {
+                "id": 1,
+                "title": "iPhone 14 Pro",
+                "price": 799.99,
+                "description": "Latest Apple smartphone with AMOLED display and triple camera.",
+                "category": "Smartphones",
+                "image": "https://m.media-amazon.com/images/I/61BGE6iu4AL._AC_UF1000,1000_QL80_.jpg",
+                "rating": {
+                    "rate": 4.8,
+                    "count": 120
+                }
+            },
+            {
+                "id": 2,
+                "title": "MacBook Air M2",
+                "price": 1299.99,
+                "description": "Powerful ultrabook with latest generation processor and SSD storage.",
+                "category": "Laptops",
+                "image": "https://m.media-amazon.com/images/I/71TPda7cwUL._AC_UF1000,1000_QL80_.jpg",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 85
+                }
+            },
+            {
+                "id": 3,
+                "title": "Wireless Headphones Bengoo G9000",
+                "price": 149.99,
+                "description": "Headphones with active noise cancellation and 30-hour battery life.",
+                "category": "Headphones",
+                "image": "https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UF1000,1000_QL80_.jpg",
+                "rating": {
+                    "rate": 4.5,
+                    "count": 210
+                }
+            }
+            ,
+            {
+                "id": 4,
+                "title": "Asus TUF Gaming Laptop",
+                "price": 1499.99,
+                "description": "High-performance gaming laptop with RTX graphics.",
+                "category": "Laptops",
+                "image": "https://aztechshop.az/image/cache/catalog/Asus%20Tuf/ASUS%20TUF%20Gaming%20A15%20FA506QE,%20FA506QC,%20FA506IE,%20FA506IC,%20FA506IHR%20Graphite%20Black(Sayt)yeni-1300x1300.png",
+                "rating": {
+                    "rate": 5.0,
+                    "count": 1249
+                }
+            }
+        ,
+            {
+                "id": 5,
+                "title": "Gaming Keyboard",
+                "price": 59.99,
+                "description": "Mechanical gaming keyboard with customizable RGB lighting.",
+                "category": "Gaming",
+                "image": "https://assets-prd.ignimgs.com/2024/10/15/81l4fpes3vl-ac-sl1500-1728983194819.jpg",
+                "rating": {
+                    "rate": 4.8,
+                    "count": 4958
+                }
+            }
+        ]
+    },
+    "books": {
+        "subcategories": ["Fiction", "Non-Fiction", "Science", "Biography", "Children", "Cookbooks"],
+        "items": [
+            {
+                "id": 1,
+                "title": "The Silent Patient",
+                "price": 12.99,
+                "description": "Psychological thriller about a woman who shoots her husband and then stops speaking.",
+                "category": "Fiction",
+                "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQjQP6N_JygvrTNu6ztCsTo4qR5AfA1d_L-xfTU407q4hxHrntj",
+                "rating": {
+                    "rate": 4.5,
+                    "count": 23000
+                },
+                "author": "Alex Michaelides",
+                "year": 2019
+            },
+            {
+                "id": 2,
+                "title": "Atomic Habits",
+                "price": 14.99,
+                "description": "Guide to building good habits and breaking bad ones.",
+                "category": "Non-Fiction",
+                "image": "https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 45000
+                },
+                "author": "James Clear",
+                "year": 2018
+            },
+            {
+                "id": 3,
+                "title": "Brilliant Blunders",
+                "price": 29.99,
+                "description": "Guide to great mistakes in science.",
+                "category": "Science",
+                "image": "https://m.media-amazon.com/images/I/71b-jWVoncL._UF350,350_QL50_.jpg",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 20000
+                },
+                "author": "James Clear",
+                "year": 2018
+            }
+        ]
+    },
+    "clothing": {
+        "subcategories": ["Men", "Women", "Kids", "Shoes", "Accessories", "Sportswear"],
+        "items": [
+            {
+                "id": 1,
+                "title": "Men's Casual Shirt",
+                "price": 29.99,
+                "description": "Comfortable cotton shirt for everyday wear.",
+                "category": "Men",
+                "image": "https://m.media-amazon.com/images/I/61-jBuhtgZL._AC_UF1000,1000_QL80_.jpg",
+                "rating": {
+                    "rate": 4.3,
+                    "count": 120
+                },
+                "size": ["S", "M", "L", "XL"]
+            }
+        ]
+    },
+    "home": {
+        "subcategories": ["Furniture", "Kitchen", "Decor", "Lighting", "Bedding", "Appliances"],
+        "items": [
+            {
+                "id": 1,
+                "title": "Modern Coffee Table",
+                "price": 149.99,
+                "description": "Sleek modern coffee table with glass top.",
+                "category": "Furniture",
+                "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/84b49f8541b85f9b410d8268c5b1b7691c17646d/Glass-Coffee-Table-for-Living-Room%2C-Modern-Tempered-Glass-Tabletop-and-MDF-Legs%2C-Small-Modern-Coffee-Table.jpg?impolicy=medium",
+                "rating": {
+                    "rate": 4.6,
+                    "count": 85
+                },
+                "dimensions": "120x60x45 cm"
+            }
+        ]
+    }
+}
