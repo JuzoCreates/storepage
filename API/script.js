@@ -9,22 +9,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const clearSearchBtn = document.getElementById('clearSearch');
     const subcategoriesContainer = document.getElementById('subcategories');
     const cartBtn = document.querySelector('.cart-btn');
+    const wishlistBtn = document.querySelector('.wishlist-btn');
     const cartSidebar = document.getElementById('cartSidebar');
+    const wishlistSidebar = document.getElementById('wishlistSidebar');
     const closeCartBtn = document.querySelector('.close-cart');
+    const closeWishlistBtn = document.querySelector('.close-wishlist');
     const cartItemsContainer = document.getElementById('cartItems');
+    const wishlistItemsContainer = document.getElementById('wishlistItems');
     const cartTotalElement = document.getElementById('cartTotal');
     const cartCountElement = document.querySelector('.cart-count');
+    const wishlistCountElement = document.querySelector('.wishlist-count');
     const checkoutBtn = document.querySelector('.checkout-btn');
-
-    // Create cart overlay
-    const cartOverlay = document.createElement('div');
-    cartOverlay.className = 'cart-overlay';
-    document.body.appendChild(cartOverlay);
+    const sortSelect = document.getElementById('sortSelect');
+    const cartOverlay = document.querySelector('.cart-overlay');
+    const wishlistOverlay = document.querySelector('.wishlist-overlay');
 
     let allData = {};
     let currentTab = 'electronics';
     let currentSubcategory = 'all';
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
     // Load data
     fetch('data.json')
@@ -34,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             initTab(currentTab);
             showSubcategories(currentTab);
             updateCart();
+            updateWishlist();
         })
         .catch(error => {
             console.error('Error loading data:', error);
@@ -48,12 +53,18 @@ document.addEventListener('DOMContentLoaded', function () {
         renderCartItems();
     }
 
+    function updateWishlist() {
+        wishlistCountElement.textContent = wishlist.length;
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        renderWishlistItems();
+    }
+
     function renderCartItems() {
         cartItemsContainer.innerHTML = '';
 
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML =
-                `<div class="empty-cart">
+            cartItemsContainer.innerHTML = `
+                <div class="empty-cart">
                     <i class="fas fa-shopping-cart"></i>
                     <p>Your cart is empty</p>
                 </div>`;
@@ -69,8 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
             cartItemElement.dataset.id = item.id;
             cartItemElement.dataset.category = item.category;
 
-            cartItemElement.innerHTML =
-                `<img src="${item.image}" alt="${item.title}" class="cart-item-img">
+            cartItemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="cart-item-img">
                 <div class="cart-item-details">
                     <h4 class="cart-item-title">${item.title}</h4>
                     <p class="cart-item-price">$${item.price.toFixed(2)}</p>
@@ -91,6 +102,41 @@ document.addEventListener('DOMContentLoaded', function () {
         cartTotalElement.textContent = `$${total.toFixed(2)}`;
     }
 
+    function renderWishlistItems() {
+        wishlistItemsContainer.innerHTML = '';
+
+        if (wishlist.length === 0) {
+            wishlistItemsContainer.innerHTML = `
+                <div class="empty-wishlist">
+                    <i class="fas fa-heart"></i>
+                    <p>Your wishlist is empty</p>
+                </div>`;
+            return;
+        }
+
+        wishlist.forEach(item => {
+            const wishlistItemElement = document.createElement('div');
+            wishlistItemElement.className = 'wishlist-item';
+            wishlistItemElement.dataset.id = item.id;
+            wishlistItemElement.dataset.category = item.category;
+
+            wishlistItemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" class="wishlist-item-img">
+                <div class="wishlist-item-details">
+                    <h4 class="wishlist-item-title">${item.title}</h4>
+                    <p class="wishlist-item-price">$${item.price.toFixed(2)}</p>
+                    <button class="move-to-cart" data-id="${item.id}" data-category="${item.category}">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                    <button class="remove-from-wishlist" data-id="${item.id}" data-category="${item.category}">
+                        <i class="fas fa-trash"></i> Remove
+                    </button>
+                </div>`;
+
+            wishlistItemsContainer.appendChild(wishlistItemElement);
+        });
+    }
+
     function addToCart(item, tabId) {
         const existingItem = cart.find(cartItem => cartItem.id === item.id && cartItem.category === tabId);
 
@@ -108,9 +154,31 @@ document.addEventListener('DOMContentLoaded', function () {
         showNotification(`${item.title} added to cart`);
     }
 
+    function addToWishlist(item, tabId) {
+        const existingItem = wishlist.find(wishlistItem => 
+            wishlistItem.id === item.id && wishlistItem.category === tabId
+        );
+
+        if (!existingItem) {
+            wishlist.push({
+                ...item,
+                category: tabId
+            });
+            updateWishlist();
+            showNotification(`${item.title} added to wishlist`);
+        } else {
+            showNotification(`${item.title} is already in your wishlist`);
+        }
+    }
+
     function removeFromCart(itemId, category) {
         cart = cart.filter(item => !(item.id === itemId && item.category === category));
         updateCart();
+    }
+
+    function removeFromWishlist(itemId, category) {
+        wishlist = wishlist.filter(item => !(item.id === itemId && item.category === category));
+        updateWishlist();
     }
 
     function changeQuantity(itemId, category, delta) {
@@ -192,18 +260,53 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Sort items
+    function sortItems(sortBy) {
+    const container = document.getElementById(`${currentTab}Container`);
+    let items = currentSubcategory === 'all' 
+        ? [...allData[currentTab].items]
+        : allData[currentTab].items.filter(item => item.category === currentSubcategory);
+
+    switch (sortBy) {
+        case 'price-asc':
+            items.sort((a, b) => a.price - b.price);
+            break;
+        case 'price-desc':
+            items.sort((a, b) => b.price - a.price);
+            break;
+        case 'rating':
+            items.sort((a, b) => b.rating.rate - a.rating.rate);
+            break;
+        case 'newest':
+              case 'default':
+        case 'name-asc':
+    items.sort((a, b) => a.title.localeCompare(b.title));
+    break;
+        case 'name-desc':
+    items.sort((a, b) => b.title.localeCompare(a.title));
+    break;
+              // Вернуть исходный порядок
+        items = currentSubcategory === 'all' 
+            ? [...allData[currentTab].items]
+            : allData[currentTab].items.filter(item => item.category === currentSubcategory);
+        break;
+    }
+
+    renderItems(container, items, currentTab);
+}
+
     // Render items
     function renderItems(container, items, tabId) {
-        container.innerHTML =
-            `<div class="loading-animation">
+        container.innerHTML = `
+            <div class="loading-animation">
                 <div class="loader"></div>
                 <p>Loading ${getTabName(tabId)}...</p>
             </div>`;
 
         setTimeout(() => {
             if (items.length === 0) {
-                container.innerHTML =
-                    `<div class="no-results">
+                container.innerHTML = `
+                    <div class="no-results">
                         <i class="fas fa-search"></i>
                         <h3>No items found</h3>
                         <p>Try changing your search query</p>
@@ -225,8 +328,8 @@ document.addEventListener('DOMContentLoaded', function () {
         card.style.animationDelay = `${index * 0.1}s`;
         card.dataset.id = item.id;
 
-        let html =
-            `<img src="${item.image}" alt="${item.title}" class="product-image" loading="lazy">
+        let html = `
+            <img src="${item.image}" alt="${item.title}" class="product-image" loading="lazy">
             <div class="product-info">
                 <span class="product-category">${item.category}</span>
                 <h3 class="product-title">${item.title}</h3>
@@ -241,7 +344,13 @@ document.addEventListener('DOMContentLoaded', function () {
             html += `<p class="product-dimensions"><i class="fas fa-ruler-combined"></i> ${item.dimensions}</p>`;
         }
 
-        html += `</div><button class="quick-add" data-id="${item.id}">Add to Cart</button>`;
+        html += `</div>
+            <div class="product-actions">
+                <button class="quick-add" data-id="${item.id}">Add to Cart</button>
+                <button class="wishlist-add" data-id="${item.id}">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>`;
 
         card.innerHTML = html;
 
@@ -250,17 +359,22 @@ document.addEventListener('DOMContentLoaded', function () {
             addToCart(item, tabId);
         });
 
+        card.querySelector('.wishlist-add').addEventListener('click', (e) => {
+            e.stopPropagation();
+            addToWishlist(item, tabId);
+        });
+
         card.addEventListener('click', () => openModal(item, tabId));
         container.appendChild(card);
     }
-    
+
     // Delete item from site
     function deleteItemFromSite(itemId) {
         allData[currentTab].items = allData[currentTab].items.filter(item => item.id !== itemId);
         filterBySubcategory(currentSubcategory);
-        showNotification('Товар удалён с сайта');
+        showNotification('Item removed from site');
     }
-    
+
     // Search items
     function searchItems(query) {
         let items = currentSubcategory === 'all'
@@ -287,57 +401,76 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Open modal
-    function openModal(item, tabId) {
-        let modalHtml = 
-            `<img src="${item.image}" alt="${item.title}" class="modal-image">
-            <h2 class="modal-title">${item.title}</h2>
-            <span class="modal-category">${item.category}</span>
-            <p class="modal-price">$${item.price.toFixed(2)}</p>
-            <div class="modal-rating">
-                <span class="stars">${'★'.repeat(Math.round(item.rating.rate))}${'☆'.repeat(5 - Math.round(item.rating.rate))}</span>
-                <span>${item.rating.count} reviews</span>
-            </div>
-            <p class="modal-description">${item.description}</p>`;
+    // Open modal
+function openModal(item, tabId) {
+    let modalHtml = `
+        <img src="${item.image}" alt="${item.title}" class="modal-image">
+        <h2 class="modal-title">${item.title}</h2>
+        <span class="modal-category">${item.category}</span>
+        <p class="modal-price">$${item.price.toFixed(2)}</p>
+        <div class="modal-rating">
+            <span class="stars">${'★'.repeat(Math.round(item.rating.rate))}${'☆'.repeat(5 - Math.round(item.rating.rate))}</span>
+            <span>${item.rating.count} reviews</span>
+        </div>
+        <p class="modal-description">${item.description}</p>`;
 
-        if (tabId === 'books') {
-            modalHtml += 
-                `<div class="modal-details">
-                    <p><i class="fas fa-user"></i> <strong>Author:</strong> ${item.author}</p>
-                    <p><i class="fas fa-calendar-alt"></i> <strong>Year:</strong> ${item.year}</p>
-                </div>`;
-        } else if (tabId === 'clothing' && item.size) {
-            modalHtml += 
-                `<div class="modal-details">
-                    <p><i class="fas fa-tshirt"></i> <strong>Sizes:</strong> ${item.size.join(', ')}</p>
-                </div>`;
-        } else if (tabId === 'home' && item.dimensions) {
-            modalHtml += 
-                `<div class="modal-details">
-                    <p><i class="fas fa-ruler-combined"></i> <strong>Dimensions:</strong> ${item.dimensions}</p>
-                </div>`;
+    // Add specs section if they exist
+    if (item.specs) {
+        modalHtml += `<div class="modal-specs"><h4>Specifications:</h4><ul>`;
+        for (const [key, value] of Object.entries(item.specs)) {
+            modalHtml += `<li><strong>${key}:</strong> ${value}</li>`;
         }
-        
-        modalHtml += `
-            <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
-            <button class="delete-from-site" data-id="${item.id}">Удалить с сайта</button>
-        `;
-        
-        modalContent.innerHTML = modalHtml;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-
-        const addToCartBtn = modalContent.querySelector('.add-to-cart');
-        addToCartBtn.addEventListener('click', () => {
-            addToCart(item, tabId);
-            closeModal();
-        });
-
-        const deleteFromSiteBtn = modalContent.querySelector('.delete-from-site');
-        deleteFromSiteBtn.addEventListener('click', () => {
-            deleteItemFromSite(item.id);
-            closeModal();
-        });
+        modalHtml += `</ul></div>`;
     }
+
+    if (tabId === 'books') {
+        modalHtml += `
+            <div class="modal-details">
+                <p><i class="fas fa-user"></i> <strong>Author:</strong> ${item.author}</p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>Year:</strong> ${item.year}</p>
+            </div>`;
+    } else if (tabId === 'clothing' && item.size) {
+        modalHtml += `
+            <div class="modal-details">
+                <p><i class="fas fa-tshirt"></i> <strong>Sizes:</strong> ${item.size.join(', ')}</p>
+                ${item.colors ? `<p><i class="fas fa-palette"></i> <strong>Colors:</strong> ${item.colors.join(', ')}</p>` : ''}
+            </div>`;
+    } else if (tabId === 'home' && item.dimensions) {
+        modalHtml += `
+            <div class="modal-details">
+                <p><i class="fas fa-ruler-combined"></i> <strong>Dimensions:</strong> ${item.dimensions}</p>
+            </div>`;
+    }
+    
+    modalHtml += `
+        <div class="modal-actions">
+            <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
+            <button class="add-to-wishlist" data-id="${item.id}">Add to Wishlist</button>
+            <button class="delete-from-site" data-id="${item.id}">Delete from Site</button>
+        </div>`;
+    
+    modalContent.innerHTML = modalHtml;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const addToCartBtn = modalContent.querySelector('.add-to-cart');
+    addToCartBtn.addEventListener('click', () => {
+        addToCart(item, tabId);
+        closeModal();
+    });
+
+    const addToWishlistBtn = modalContent.querySelector('.add-to-wishlist');
+    addToWishlistBtn.addEventListener('click', () => {
+        addToWishlist(item, tabId);
+        closeModal();
+    });
+
+    const deleteFromSiteBtn = modalContent.querySelector('.delete-from-site');
+    deleteFromSiteBtn.addEventListener('click', () => {
+        deleteItemFromSite(item.id);
+        closeModal();
+    });
+}
 
     function closeModal() {
         modal.classList.remove('active');
@@ -369,8 +502,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function showError() {
         const containers = document.querySelectorAll('.products-container');
         containers.forEach(container => {
-            container.innerHTML =
-                `<div class="error-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+            container.innerHTML = `
+                <div class="error-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
                     <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #e63946; margin-bottom: 20px;"></i>
                     <h3>Error loading data</h3>
                     <p>Please try refreshing the page later</p>
@@ -401,6 +534,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.key === 'Enter') searchItems(e.target.value);
     });
 
+    sortSelect.addEventListener('change', (e) => {
+        sortItems(e.target.value);
+    });
+
     closeBtn.addEventListener('click', closeModal);
 
     modal.addEventListener('click', (e) => {
@@ -417,9 +554,21 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = 'hidden';
     });
 
+    wishlistBtn.addEventListener('click', () => {
+        wishlistSidebar.classList.add('active');
+        wishlistOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
     closeCartBtn.addEventListener('click', () => {
         cartSidebar.classList.remove('active');
         cartOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    closeWishlistBtn.addEventListener('click', () => {
+        wishlistSidebar.classList.remove('active');
+        wishlistOverlay.classList.remove('active');
         document.body.style.overflow = 'auto';
     });
 
@@ -429,9 +578,15 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = 'auto';
     });
 
-    // Handle cart item events
+    wishlistOverlay.addEventListener('click', () => {
+        wishlistSidebar.classList.remove('active');
+        wishlistOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Handle cart and wishlist item events
     document.addEventListener('click', (e) => {
-        // Remove item
+        // Remove item from cart
         if (e.target.classList.contains('remove-item')) {
             const itemId = parseInt(e.target.dataset.id);
             const category = e.target.dataset.category;
@@ -451,6 +606,24 @@ document.addEventListener('DOMContentLoaded', function () {
             const category = e.target.dataset.category;
             changeQuantity(itemId, category, -1);
         }
+        
+        // Remove from wishlist
+        else if (e.target.classList.contains('remove-from-wishlist')) {
+            const itemId = parseInt(e.target.dataset.id);
+            const category = e.target.dataset.category;
+            removeFromWishlist(itemId, category);
+        }
+        
+        // Move to cart from wishlist
+        else if (e.target.classList.contains('move-to-cart')) {
+            const itemId = parseInt(e.target.dataset.id);
+            const category = e.target.dataset.category;
+            const item = wishlist.find(item => item.id === itemId && item.category === category);
+            if (item) {
+                addToCart(item, category);
+                removeFromWishlist(itemId, category);
+            }
+        }
     });
 
     checkoutBtn.addEventListener('click', () => {
@@ -467,4 +640,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     updateCart();
+    updateWishlist();
 });
