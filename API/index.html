@@ -4,14 +4,14 @@
     <link rel="icon" href="https://yt3.googleusercontent.com/fVPcXfVXmOmV7x-45ixKG6cvsEIhbuGSQOZHIH9vqGGVG7uS5MHYz_IL2Dm1iS56plcQxrrbkQ=s900-c-k-c0x00ffffff-no-rj" type="image/png" sizes="16x16">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multistore</title>
+    <title>Multistore - Premium Online Shopping</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="header">
         <h1>Multistore</h1>
-        <p>Best products in different categories</p>
+        <p>Premium products across all categories</p>
     </div>
 
     <div class="search-container">
@@ -20,6 +20,18 @@
             <input type="text" id="searchInput" placeholder="Search products...">
             <button id="clearSearch"><i class="fas fa-times"></i></button>
         </div>
+        <div class="sort-container">
+    <select id="sortSelect" class="sort-select">
+        <option value="default">Sort by</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A-Z</option>
+        <option value="name-desc">Name: Z-A</option>
+        <option value="rating">Rating</option>
+        <option value="newest">Newest</option>
+    </select>
+</div>
+
     </div>
 
     <div class="tabs">
@@ -53,42 +65,62 @@
             <div class="modal-body" id="modalContent"></div>
         </div>
     </div>
-<div class="cart-btn">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="cart-count">0</span>
-</div>
-<div class="cart-sidebar" id="cartSidebar">
-    <div class="cart-header">
-        <h3>Your Cart</h3>
-        <button class="close-cart"><i class="fas fa-times"></i></button>
+
+    <div class="cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
     </div>
-    <div class="cart-items" id="cartItems"></div>
-    <div class="cart-footer">
-        <div class="cart-total">
-            <span>Total:</span>
-            <span id="cartTotal">$0.00</span>
+
+    <div class="wishlist-btn">
+        <i class="fas fa-heart"></i>
+        <span class="wishlist-count">0</span>
+    </div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
         </div>
-        <button class="checkout-btn">Checkout</button>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
     </div>
-</div>
-<footer class="footer">
-  <div class="footer-container">
-    <div class="footer-contact">
-      <p><strong>Phone:</strong> +994 050 200 44 22</p>
-      <p><strong>Adress:</strong> Baku c., Xocali strt., 123</p>
+
+    <div class="wishlist-sidebar" id="wishlistSidebar">
+        <div class="wishlist-header">
+            <h3>Your Wishlist</h3>
+            <button class="close-wishlist"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="wishlist-items" id="wishlistItems"></div>
     </div>
-    <div class="footer-socials">
-      <a href="#" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="Twitter" class="social-link"><i class="fab fa-twitter"></i></a>
-      <a href="#" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-  </div>
-  <div class="footer-copy">
-    © 2025 Sarkhan. All rights reserved.
-  </div>
-</footer>
-    <script src="data.json"></script>
+
+    <div class="cart-overlay"></div>
+    <div class="wishlist-overlay"></div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-contact">
+                <p><strong>Phone:</strong> +994 050 200 44 22</p>
+                <p><strong>Address:</strong> Baku c., Xocali strt., 123</p>
+                <p><strong>Email:</strong> info@multistore.com</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#" aria-label="Facebook" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-copy">
+            © 2025 Multistore. All rights reserved.
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
