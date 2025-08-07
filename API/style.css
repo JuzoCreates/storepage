@@ -1053,3 +1053,43 @@ body {
 .modal-specs li strong {
     color: #6a11cb;
 }
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 999;
+    transform: translateX(-120%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    opacity: 0;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification i {
+    font-size: 1.2rem;
+}
+
+.notification.success {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+.notification.error {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+}
+
+.notification.warning {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
