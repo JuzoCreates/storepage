@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         updateCart();
-        showNotification(`${item.title} added to cart`);
+        showNotification(`${item.title} added to cart`, 'success');
     }
 
     function addToWishlist(item, tabId) {
@@ -165,9 +165,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 category: tabId
             });
             updateWishlist();
-            showNotification(`${item.title} added to wishlist`);
+            showNotification(`${item.title} added to wishlist`, 'success');
         } else {
-            showNotification(`${item.title} is already in your wishlist`);
+            showNotification(`${item.title} is already in your wishlist`, 'warning');
         }
     }
 
@@ -193,18 +193,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        setTimeout(() => notification.classList.add('show'), 10);
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
+    function showNotification(message, type = 'default') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    
+    // Добавляем иконку в зависимости от типа уведомления
+    let icon;
+    switch(type) {
+        case 'success':
+            icon = '<i class="fas fa-check-circle"></i>';
+            break;
+        case 'error':
+            icon = '<i class="fas fa-exclamation-circle"></i>';
+            break;
+        case 'warning':
+            icon = '<i class="fas fa-exclamation-triangle"></i>';
+            break;
+        default:
+            icon = '<i class="fas fa-info-circle"></i>';
     }
+    
+    notification.innerHTML = `${icon} ${message}`;
+    document.body.appendChild(notification);
+
+    // Показываем уведомление
+    setTimeout(() => notification.classList.add('show'), 10);
+
+    // Автоматическое скрытие через 3 секунды
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
 
     // Initialize tab
     function initTab(tabId) {
@@ -372,7 +392,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function deleteItemFromSite(itemId) {
         allData[currentTab].items = allData[currentTab].items.filter(item => item.id !== itemId);
         filterBySubcategory(currentSubcategory);
-        showNotification('Item removed from site');
+        showNotification('Item removed from site', 'success');
     }
 
     // Search items
@@ -628,12 +648,12 @@ function openModal(item, tabId) {
 
     checkoutBtn.addEventListener('click', () => {
         if (cart.length === 0) {
-            showNotification('Your cart is empty!');
+            showNotification('Your cart is empty!', 'warning');
             return;
         }
         cart = [];
         updateCart();
-        showNotification('Thank you for your purchase!');
+        showNotification('Successful operation!', 'success');
         cartSidebar.classList.remove('active');
         cartOverlay.classList.remove('active');
         document.body.style.overflow = 'auto';
