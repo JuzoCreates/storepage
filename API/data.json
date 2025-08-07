@@ -4,64 +4,142 @@
         "items": [
             {
                 "id": 1,
-                "title": "iPhone 14 Pro",
-                "price": 799.99,
-                "description": "Latest Apple smartphone with AMOLED display and triple camera.",
+                "title": "iPhone 15 Pro Max",
+                "price": 1199.99,
+                "description": "Flagship smartphone with A17 Pro chip, 6.7\" Super Retina XDR display, 48MP camera system, and titanium design. Features ProMotion technology with adaptive refresh rates up to 120Hz and all-day battery life.",
                 "category": "Smartphones",
                 "image": "https://m.media-amazon.com/images/I/61BGE6iu4AL._AC_UF1000,1000_QL80_.jpg",
                 "rating": {
-                    "rate": 4.8,
-                    "count": 120
+                    "rate": 4.9,
+                    "count": 420
+                },
+                "specs": {
+                    "processor": "A17 Pro",
+                    "ram": "8GB",
+                    "storage": "1TB",
+                    "display": "6.7\" OLED 2796x1290",
+                    "battery": "4441 mAh",
+                    "os": "iOS 17"
                 }
             },
             {
                 "id": 2,
-                "title": "MacBook Air M2",
-                "price": 1299.99,
-                "description": "Powerful ultrabook with latest generation processor and SSD storage.",
+                "title": "MacBook Pro 16\" M3 Max",
+                "price": 3499.99,
+                "description": "Professional laptop with M3 Max chip (16-core CPU, 40-core GPU), 16.2\" Liquid Retina XDR display, 64GB unified memory, and 1TB SSD storage. Perfect for creative professionals with up to 22 hours battery life.",
                 "category": "Laptops",
-                "image": "https://m.media-amazon.com/images/I/71TPda7cwUL._AC_UF1000,1000_QL80_.jpg",
+                "image": "https://www.bakuelectronics.az/assets/cache_image/products/147208/apple-macbook-pro-162-apple-m3-max-6_429x419far_efe.jpg",
                 "rating": {
-                    "rate": 4.7,
-                    "count": 85
+                    "rate": 4.8,
+                    "count": 185
+                },
+                "specs": {
+                    "processor": "Apple M3 Max",
+                    "ram": "48GB",
+                    "storage": "1TB SSD",
+                    "display": "16.2\" 3456x2234",
+                    "battery": "100Wh",
+                    "os": "macOS Ventura"
                 }
             },
             {
                 "id": 3,
-                "title": "Wireless Headphones Bengoo G9000",
-                "price": 149.99,
-                "description": "Headphones with active noise cancellation and 30-hour battery life.",
+                "title": "Bengoo G9000 Gaming Headset",
+                "price": 349.99,
+                "description": "Bengoo G9000 Stereo Gaming Headset for PS5 PS4, PC, Xbox One Controller, Noise Cancelling Over Ear Headphones with Mic, LED Light, Bass Surround, Soft Memory Earmuffs for Laptop Mac Nintendo PS3",
                 "category": "Headphones",
                 "image": "https://m.media-amazon.com/images/I/61CGHv6kmWL._AC_UF1000,1000_QL80_.jpg",
                 "rating": {
-                    "rate": 4.5,
-                    "count": 210
+                    "rate": 4.7,
+                    "count": 3210
+                },
+                "specs": {
+                    "type": "Over-ear",
+                    "battery": "30 hours",
+                    "noiseCancelling": "Yes",
+                    "bluetooth": "5.3",
+                    "weight": "272.16g",
+                    "waterResistant": "No"
                 }
-            }
-            ,
+            },
             {
                 "id": 4,
-                "title": "Asus TUF Gaming Laptop",
-                "price": 1499.99,
-                "description": "High-performance gaming laptop with RTX graphics.",
+                "title": "Asus ASUS TUF Gaming A15",
+                "price": 1799.99,
+                "description": "ASUS TUF Gaming A15 FA506NFR-HN021 - Affordable ASUS TUF gaming laptop. ASUS TUF Gaming A15 gaming laptop with Ryzen 7 processor and RTX 2050 graphics card.",
                 "category": "Laptops",
                 "image": "https://aztechshop.az/image/cache/catalog/Asus%20Tuf/ASUS%20TUF%20Gaming%20A15%20FA506QE,%20FA506QC,%20FA506IE,%20FA506IC,%20FA506IHR%20Graphite%20Black(Sayt)yeni-1300x1300.png",
                 "rating": {
-                    "rate": 5.0,
-                    "count": 1249
+                    "rate": 4.9,
+                    "count": 249
+                },
+                "specs": {
+                    "processor": "AMD Ryzen 7 7435HS",
+                    "gpu": "NVIDIA RTX 2050",
+                    "ram": "16GB DDR5",
+                    "storage": "512GB SSD",
+                    "display": "15.6\" FHD 1920x1080 144Hz",
+                    "os": "Windows 11 Pro"
                 }
-            }
-        ,
+            },
             {
                 "id": 5,
-                "title": "Gaming Keyboard",
-                "price": 59.99,
-                "description": "Mechanical gaming keyboard with customizable RGB lighting.",
+                "title": "Razer BlackWidow V4 Pro",
+                "price": 229.99,
+                "description": "Mechanical gaming keyboard with Razer Green switches, customizable RGB lighting, programmable macros, and plush leatherette wrist rest. Features multi-function digital dial and media controls.",
                 "category": "Gaming",
                 "image": "https://assets-prd.ignimgs.com/2024/10/15/81l4fpes3vl-ac-sl1500-1728983194819.jpg",
                 "rating": {
                     "rate": 4.8,
-                    "count": 4958
+                    "count": 958
+                },
+                "specs": {
+                    "type": "Mechanical",
+                    "switches": "Razer Green",
+                    "backlight": "RGB",
+                    "connectivity": "Wired",
+                    "keyRollover": "N-key",
+                    "weight": "1.5kg"
+                }
+            },
+            {
+                "id": 6,
+                "title": "Apple Watch Ultra 2",
+                "price": 799.99,
+                "description": "Premium rugged smartwatch with 49mm titanium case, always-on Retina display, advanced fitness tracking, and dive computer features. Water resistant to 100m with 36-hour battery life.",
+                "category": "Smartwatches",
+                "image": "https://www.bakuelectronics.az/assets/cache_image/products/138063/smart-saat-apple-watch-ultra-2-gps-cellular-49mm-titanium-case-wiht-white-ocean-band-mrej3rba-1_429x419far_74b.png",
+                "rating": {
+                    "rate": 4.8,
+                    "count": 542
+                },
+                "specs": {
+                    "display": "49mm LTPO OLED",
+                    "processor": "S9 SiP",
+                    "waterResistance": "100m",
+                    "battery": "36 hours",
+                    "sensors": "ECG, SpO2, Temperature",
+                    "os": "watchOS 10"
+                }
+            },
+            {
+                "id": 7,
+                "title": "Sony A7 IV",
+                "price": 2699.99,
+                "description": "Full-frame mirrorless camera with 33MP sensor, 4K 60p video, advanced autofocus with real-time tracking, and 5-axis in-body stabilization. Professional hybrid camera for photography and videography.",
+                "category": "Cameras",
+                "image": "https://d1ncau8tqf99kp.cloudfront.net/converted/92652_original_local_1200x1050_v3_converted.webp",
+                "rating": {
+                    "rate": 4.9,
+                    "count": 387
+                },
+                "specs": {
+                    "sensor": "33MP Full-frame",
+                    "video": "4K 60p",
+                    "iso": "100-51200",
+                    "afPoints": "759 phase-detect",
+                    "stabilization": "5-axis",
+                    "connectivity": "Wi-Fi 5, Bluetooth 4.2"
                 }
             }
         ]
@@ -73,7 +151,7 @@
                 "id": 1,
                 "title": "The Silent Patient",
                 "price": 12.99,
-                "description": "Psychological thriller about a woman who shoots her husband and then stops speaking.",
+                "description": "Psychological thriller about a woman who shoots her husband and then stops speaking. The novel explores themes of trauma, silence, and the nature of truth through its unreliable narrators.",
                 "category": "Fiction",
                 "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQjQP6N_JygvrTNu6ztCsTo4qR5AfA1d_L-xfTU407q4hxHrntj",
                 "rating": {
@@ -81,13 +159,20 @@
                     "count": 23000
                 },
                 "author": "Alex Michaelides",
-                "year": 2019
+                "year": 2019,
+                "details": {
+                    "pages": 336,
+                    "publisher": "Celadon Books",
+                    "language": "English",
+                    "isbn": "9781250301697",
+                    "genre": "Psychological Thriller"
+                }
             },
             {
                 "id": 2,
                 "title": "Atomic Habits",
                 "price": 14.99,
-                "description": "Guide to building good habits and breaking bad ones.",
+                "description": "Guide to building good habits and breaking bad ones. Presents a practical framework for understanding how habits work and how to design systems for continuous improvement in all areas of life.",
                 "category": "Non-Fiction",
                 "image": "https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg",
                 "rating": {
@@ -95,21 +180,98 @@
                     "count": 45000
                 },
                 "author": "James Clear",
-                "year": 2018
+                "year": 2018,
+                "details": {
+                    "pages": 320,
+                    "publisher": "Avery",
+                    "language": "English",
+                    "isbn": "9780735211292",
+                    "genre": "Self-Help"
+                }
             },
             {
                 "id": 3,
-                "title": "Brilliant Blunders",
-                "price": 29.99,
-                "description": "Guide to great mistakes in science.",
+                "title": "A Brief History of Time",
+                "price": 19.99,
+                "description": "Landmark volume exploring the nature of space, time, black holes, and the origins of the universe. Makes complex cosmological concepts accessible to general readers.",
                 "category": "Science",
                 "image": "https://m.media-amazon.com/images/I/71b-jWVoncL._UF350,350_QL50_.jpg",
                 "rating": {
                     "rate": 4.7,
                     "count": 20000
                 },
-                "author": "James Clear",
-                "year": 2018
+                "author": "Stephen Hawking",
+                "year": 1988,
+                "details": {
+                    "pages": 256,
+                    "publisher": "Bantam",
+                    "language": "English",
+                    "isbn": "9780553109535",
+                    "genre": "Popular Science"
+                }
+            },
+            {
+                "id": 4,
+                "title": "Becoming",
+                "price": 18.99,
+                "description": "Memoir by former First Lady Michelle Obama, chronicling her journey from the South Side of Chicago to the White House. A deeply personal account of family, career, and public service.",
+                "category": "Biography",
+                "image": "https://m.media-amazon.com/images/I/81h2gWPTYJL._AC_UF1000,1000_QL80_.jpg",
+                "rating": {
+                    "rate": 4.8,
+                    "count": 68000
+                },
+                "author": "Michelle Obama",
+                "year": 2018,
+                "details": {
+                    "pages": 448,
+                    "publisher": "Crown",
+                    "language": "English",
+                    "isbn": "9781524763138",
+                    "genre": "Autobiography"
+                }
+            },
+            {
+                "id": 5,
+                "title": "The Very Hungry Caterpillar",
+                "price": 8.99,
+                "description": "Classic children's picture book following the journey of a caterpillar as it eats its way through various foods before transforming into a beautiful butterfly. Teaches counting, days of the week, and metamorphosis.",
+                "category": "Children",
+                "image": "https://m.media-amazon.com/images/I/91gihQh4OCS.jpg",
+                "rating": {
+                    "rate": 4.9,
+                    "count": 42000
+                },
+                "author": "Eric Carle",
+                "year": 1969,
+                "details": {
+                    "pages": 26,
+                    "publisher": "World Publishing Company",
+                    "language": "English",
+                    "isbn": "9780399208539",
+                    "genre": "Picture Book"
+                }
+            },
+            {
+                "id": 6,
+                "title": "Salt, Fat, Acid, Heat",
+                "price": 29.99,
+                "description": "Master guide to cooking that distills decades of professional experience into four fundamental elements. Features recipes, techniques, and beautiful illustrations that explain the science of good cooking.",
+                "category": "Cookbooks",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp5mifccJzIZ6d2RY8tQu4nv87SIsdU2JBotLat-WpxqHfkLNh",
+                "rating": {
+                    "rate": 4.8,
+                    "count": 12500
+                },
+                "author": "Samin Nosrat",
+                "year": 2017,
+                "details": {
+                    "pages": 480,
+                    "publisher": "Simon & Schuster",
+                    "language": "English",
+                    "isbn": "9781476753836",
+                    "genre": "Cooking"
+                }
             }
         ]
     },
@@ -118,16 +280,128 @@
         "items": [
             {
                 "id": 1,
-                "title": "Men's Casual Shirt",
-                "price": 29.99,
-                "description": "Comfortable cotton shirt for everyday wear.",
+                "title": "Men's Premium Oxford Shirt",
+                "price": 59.99,
+                "description": "Classic fit oxford shirt made from 100% organic cotton with mother-of-pearl buttons. Features a button-down collar and reinforced stitching for durability. Machine washable with minimal shrinkage.",
                 "category": "Men",
                 "image": "https://m.media-amazon.com/images/I/61-jBuhtgZL._AC_UF1000,1000_QL80_.jpg",
                 "rating": {
-                    "rate": 4.3,
-                    "count": 120
+                    "rate": 4.6,
+                    "count": 320
                 },
-                "size": ["S", "M", "L", "XL"]
+                "size": ["XS", "S", "M", "L", "XL", "XXL"],
+                "colors": ["White", "Blue", "Light Pink", "Gray"],
+                "details": {
+                    "material": "100% Organic Cotton",
+                    "fit": "Classic",
+                    "care": "Machine Wash",
+                    "origin": "Portugal",
+                    "style": "Business Casual"
+                }
+            },
+            {
+                "id": 2,
+                "title": "Women's Cashmere Sweater",
+                "price": 129.99,
+                "description": "Luxurious 100% pure cashmere crewneck sweater with ribbed cuffs and hem. Lightweight yet warm, perfect for layering. Hand wash recommended to maintain softness and shape.",
+                "category": "Women",
+                "image": "https://www.kashmina.com/cdn/shop/files/cashmere-sweater-thora-dark-brown-11.jpg?v=1692698471&width=1080",
+                "rating": {
+                    "rate": 4.8,
+                    "count": 245
+                },
+                "size": ["XS", "S", "M", "L", "XL"],
+                "colors": ["Ivory", "Black", "Camel", "Dusty Pink"],
+                "details": {
+                    "material": "100% Cashmere",
+                    "fit": "Regular",
+                    "care": "Hand Wash",
+                    "origin": "Scotland",
+                    "style": "Classic"
+                }
+            },
+            {
+                "id": 3,
+                "title": "Kids' Waterproof Winter Jacket",
+                "price": 79.99,
+                "description": "Insulated waterproof jacket for children with adjustable hood, storm cuffs, and multiple pockets. Features reflective details for visibility and a soft fleece lining for warmth in cold weather.",
+                "category": "Kids",
+                "image": "https://m.media-amazon.com/images/I/71zbioH-AgL._UY1100_.jpg",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 187
+                },
+                "size": ["4-5Y", "6-7Y", "8-9Y", "10-12Y"],
+                "colors": ["Navy", "Red", "Pink", "Black"],
+                "details": {
+                    "material": "Polyester/Nylon Blend",
+                    "insulation": "Thermolite",
+                    "waterproof": "10,000mm",
+                    "breathability": "5,000g",
+                    "style": "Outdoor"
+                }
+            },
+            {
+                "id": 4,
+                "title": "Nike Running Shoes",
+                "price": 129.99,
+                "description": "Nike performance running shoes with responsive cushioning and breathable mesh upper. Features carbon rubber outsole for durability and a stability frame for support during long runs.",
+                "category": "Shoes",
+                "image": "https://rukminim2.flixcart.com/image/704/844/xif0q/shoe/p/x/p/-original-imagxe2gr3qrhmyf.jpeg?q=90&crop=false",
+                "rating": {
+                    "rate": 4.5,
+                    "count": 542
+                },
+                "size": ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"],
+                "colors": ["Black/Red", "White/Blue", "Gray/Orange"],
+                "details": {
+                    "type": "Running",
+                    "drop": "10mm",
+                    "weight": "280g",
+                    "technology": "Gel Cushioning",
+                    "surface": "Road"
+                }
+            },
+            {
+                "id": 5,
+                "title": "Leather Crossbody Bag",
+                "price": 149.99,
+                "description": "Genuine leather crossbody bag with multiple compartments, RFID protection, and adjustable strap. Features a top zipper closure and antique brass hardware for a vintage-inspired look.",
+                "category": "Accessories",
+                "image": "https://store.mattmathews.com/cdn/shop/files/LEATHERCROSSBODYMATT3.jpg?v=1714499584&width=720",
+                "rating": {
+                    "rate": 4.6,
+                    "count": 98
+                },
+                "colors": ["Cognac", "Black", "Tan"],
+                "details": {
+                    "material": "Full-grain Leather",
+                    "dimensions": "10\" x 7\" x 3\"",
+                    "closure": "Zipper",
+                    "compartments": 3,
+                    "style": "Casual"
+                }
+            },
+            {
+                "id": 6,
+                "title": "Yoga Leggings",
+                "price": 49.99,
+                "description": "High-waisted yoga leggings with four-way stretch and moisture-wicking fabric. Features a wide waistband for support and a hidden pocket for small essentials during workouts.",
+                "category": "Sportswear",
+                "image": "https://matadormeggings.com/cdn/shop/articles/Yoga_Leggings_for_Men_1400x.webp?v=1700669393",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 654
+                },
+                "size": ["XS", "S", "M", "L", "XL"],
+                "colors": ["Black", "Charcoal", "Burgundy", "Teal"],
+                "details": {
+                    "material": "88% Nylon, 12% Spandex",
+                    "opacity": "Squat-proof",
+                    "waist": "High-rise",
+                    "features": "Moisture-wicking",
+                    "activities": "Yoga, Pilates, Gym"
+                }
             }
         ]
     },
@@ -137,15 +411,120 @@
             {
                 "id": 1,
                 "title": "Modern Coffee Table",
-                "price": 149.99,
-                "description": "Sleek modern coffee table with glass top.",
+                "price": 349.99,
+                "description": "Sleek modern coffee table with tempered glass top and powder-coated steel frame. Features a lower shelf for storage and a minimalist design that complements contemporary living spaces.",
                 "category": "Furniture",
                 "image": "https://ak1.ostkcdn.com/images/products/is/images/direct/84b49f8541b85f9b410d8268c5b1b7691c17646d/Glass-Coffee-Table-for-Living-Room%2C-Modern-Tempered-Glass-Tabletop-and-MDF-Legs%2C-Small-Modern-Coffee-Table.jpg?impolicy=medium",
                 "rating": {
-                    "rate": 4.6,
-                    "count": 85
+                    "rate": 4.7,
+                    "count": 185
                 },
-                "dimensions": "120x60x45 cm"
+                "dimensions": "120x60x45 cm",
+                "details": {
+                    "material": "Tempered Glass/Steel",
+                    "weight": "18kg",
+                    "assembly": "Required",
+                    "style": "Modern",
+                    "color": "Black"
+                }
+            },
+            {
+                "id": 2,
+                "title": "Non-Stick Cookware Set",
+                "price": 199.99,
+                "description": "10-piece ceramic non-stick cookware set with aluminum core for even heat distribution. Includes pots, pans, and utensils with stay-cool handles and dishwasher-safe construction.",
+                "category": "Kitchen",
+                "image": "https://www.greenpan.us/cdn/shop/files/GP_Rio_Tuquoise_16pcSet_Prep_03-1200x1200-bfc499c.jpg?v=1697735703",
+                "rating": {
+                    "rate": 4.6,
+                    "count": 342
+                },
+                "pieces": 10,
+                "details": {
+                    "material": "Ceramic/Aluminum",
+                    "heatResistance": "450°F",
+                    "induction": "Compatible",
+                    "warranty": "5 years",
+                    "features": "Non-toxic coating"
+                }
+            },
+            {
+                "id": 3,
+                "title": "Decorative Throw Pillows",
+                "price": 39.99,
+                "description": "Set of 2 decorative throw pillows with removable covers. Features a textured geometric pattern and hidden zipper closure. Filled with hypoallergenic poly-fiber for comfort and support.",
+                "category": "Decor",
+                "image": "https://pyxis.nymag.com/v1/imgs/be4/2dc/4250ec61204d01840c9e03b1513c017b4d.rsquare.w600.jpg",
+                "rating": {
+                    "rate": 4.5,
+                    "count": 127
+                },
+                "size": "18x18 inches",
+                "details": {
+                    "material": "Polyester",
+                    "fill": "Polyester Fiber",
+                    "care": "Machine Wash",
+                    "style": "Bohemian",
+                    "colors": ["Ivory/Black", "Navy/White", "Terracotta/Beige"]
+                }
+            },
+            {
+                "id": 4,
+                "title": "Smart LED Floor Lamp",
+                "price": 129.99,
+                "description": "Adjustable floor lamp with smart LED technology, compatible with Alexa and Google Home. Features dimmable white and color options (16 million colors), scheduling, and energy-efficient operation.",
+                "category": "Lighting",
+                "image": "https://m.media-amazon.com/images/I/71p5fisYQCL.jpg",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 289
+                },
+                "details": {
+                    "height": "62 inches",
+                    "bulb": "LED 15W Equivalent",
+                    "smartFeatures": "Wi-Fi, Voice Control",
+                    "brightness": "800 lumens",
+                    "warranty": "2 years"
+                }
+            },
+            {
+                "id": 5,
+                "title": "Egyptian Cotton Sheets",
+                "price": 149.99,
+                "description": "1000-thread count 100% Egyptian cotton sheet set with sateen weave for luxurious softness. Includes flat sheet, fitted sheet, and 2 pillowcases with deep pockets for mattresses up to 18\".",
+                "category": "Bedding",
+                "image": "https://m.media-amazon.com/images/I/71nVxalnZ5L._UF1000,1000_QL80_.jpg",
+                "rating": {
+                    "rate": 4.8,
+                    "count": 542
+                },
+                "size": ["Twin", "Full", "Queen", "King", "Cal King"],
+                "details": {
+                    "material": "100% Egyptian Cotton",
+                    "threadCount": 1000,
+                    "weave": "Sateen",
+                    "color": "White",
+                    "care": "Machine Wash"
+                }
+            },
+            {
+                "id": 6,
+                "title": "Air Purifier",
+                "price": 299.99,
+                "description": "HEPA air purifier with 3-stage filtration (pre-filter, true HEPA, activated carbon) for rooms up to 500 sq ft. Features smart sensors, auto mode, and whisper-quiet operation at 24dB.",
+                "category": "Appliances",
+                "image": "https://cdn.thewirecutter.com/wp-content/media/2023/06/airpurifiers-2048px-00641.jpg?auto=webp&quality=75&width=1024",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 876
+                },
+                "details": {
+                    "coverage": "500 sq ft",
+                    "filters": "3-stage",
+                    "noise": "24-52dB",
+                    "features": "Auto Mode, Timer",
+                    "warranty": "3 years"
+                }
             }
         ]
     }
